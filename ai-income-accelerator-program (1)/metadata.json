@@ -1,8 +1,0 @@
-{
-  "name": "AI Income Accelerator program",
-  "description": "Step-by-step interactive questionnaire and personalized roadmap for the AI Money Making Course.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
