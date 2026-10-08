@@ -24,9 +24,8 @@ export const NavigationControls: React.FC<NavigationControlsProps> = ({
   const isMalayalam = language === 'ml';
   const isLastQuestion = currentStep === totalSteps - 1;
 
-  const handleSubmitClick = () => {
-    // Fire Meta Pixel Purchase only for the final
-    // "Submit & Book Meeting" button
+  const handleButtonClick = () => {
+    // Fire Meta Purchase only on the final button
     if (isLastQuestion) {
       try {
         if (
@@ -43,7 +42,7 @@ export const NavigationControls: React.FC<NavigationControlsProps> = ({
       }
     }
 
-    // Continue with the existing submit flow
+    // Continue existing submit / next-step logic
     onNext();
   };
 
@@ -60,6 +59,7 @@ export const NavigationControls: React.FC<NavigationControlsProps> = ({
             className="px-4 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-sm font-medium text-slate-700 shadow-xs transition-colors flex items-center gap-2 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 text-slate-500" />
+
             <span>
               {isMalayalam ? 'പുറകോട്ട്' : 'Previous'}
             </span>
@@ -79,11 +79,10 @@ export const NavigationControls: React.FC<NavigationControlsProps> = ({
 
       {/* Next / Submit button */}
       <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">
-
         <button
           id="submit-book-meeting-btn"
           type="button"
-          onClick={handleSubmitClick}
+          onClick={handleButtonClick}
           disabled={!canProceed || isSubmitting}
           className={`w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2.5 shadow-md ${
             canProceed && !isSubmitting
@@ -93,7 +92,6 @@ export const NavigationControls: React.FC<NavigationControlsProps> = ({
               : 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200 shadow-none'
           }"
         >
-
           {isSubmitting ? (
             <>
               <div className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
@@ -127,7 +125,6 @@ export const NavigationControls: React.FC<NavigationControlsProps> = ({
               <ArrowRight className="w-4 h-4" />
             </>
           )}
-
         </button>
       </div>
     </div>
