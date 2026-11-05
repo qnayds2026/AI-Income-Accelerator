@@ -1,0 +1,98 @@
+import React from 'react';
+import {
+  GraduationCap,
+  Briefcase,
+  Laptop,
+  Building2,
+  Compass,
+  Sparkles,
+  MessageSquare,
+  Cpu,
+  Zap,
+  Coins,
+  TrendingUp,
+  Rocket,
+  BarChart3,
+  PenTool,
+  Bot,
+  Video,
+  Package,
+  Clock,
+  Flame,
+  HelpCircle,
+  UserCheck,
+  ShieldAlert,
+  Users,
+  CheckCircle2,
+  ArrowRight,
+  ArrowLeft,
+  RotateCcw,
+  Share2,
+  Award,
+  Download,
+  Check,
+  Calendar,
+  Lock,
+  Phone,
+  Mail,
+  User,
+  ExternalLink,
+  BookOpen,
+  DollarSign,
+  Star,
+  Target
+} from 'lucide-react';
+
+interface IconProps {
+  name: string;
+  className?: string;
+}
+
+export const IconRenderer: React.FC<IconProps> = ({ name, className = 'w-5 h-5' }) => {
+  const iconsMap: Record<string, React.ElementType> = {
+    GraduationCap,
+    Briefcase,
+    Laptop,
+    Building2,
+    Compass,
+    Sparkles,
+    MessageSquare,
+    Cpu,
+    Zap,
+    Coins,
+    TrendingUp,
+    Rocket,
+    BarChart3,
+    PenTool,
+    Bot,
+    Video,
+    Package,
+    Clock,
+    Flame,
+    HelpCircle,
+    UserCheck,
+    ShieldAlert,
+    Users,
+    CheckCircle2,
+    ArrowRight,
+    ArrowLeft,
+    RotateCcw,
+    Share2,
+    Award,
+    Download,
+    Check,
+    Calendar,
+    Lock,
+    Phone,
+    Mail,
+    User,
+    ExternalLink,
+    BookOpen,
+    DollarSign,
+    Star,
+    Target
+  };
+
+  const IconComponent = iconsMap[name] || Sparkles;
+  return <IconComponent className={className} />;
+};
